@@ -15,7 +15,8 @@
 api_test_project/
 ├── api/                  # 接口封装层（ApiClient）
 ├── config/               # 配置文件（base_url等）
-├── data/                 # JSON测试数据文件├── testcase/             # 测试用例
+├── data/                 # JSON测试数据文件
+├── testcase/             # 测试用例
 ├── utile/                # 工具类
 ├── conftest.py           # Pytest fixtures
 └── requirements.txt      # 依赖清单
