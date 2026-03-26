@@ -1,0 +1,44 @@
+# API Test Framework
+
+基于 Pytest + Requests 的接口自动化测试框架，针对 Petstore API 进行全流程接口测试。
+
+## 技术栈
+
+- Python 3 + Pytest
+- Requests 库
+- JSON 数据驱动（pytest.mark.parametrize）
+- Allure 测试报告
+
+## 项目结构
+
+```
+api_test_project/
+├── api/                  # 接口封装层（ApiClient）
+├── config/               # 配置文件（base_url等）
+├── data/                 # JSON测试数据文件├── testcase/             # 测试用例
+├── utile/                # 工具类
+├── conftest.py           # Pytest fixtures
+└── requirements.txt      # 依赖清单
+```
+
+## 核心功能
+
+- **CRUD 全覆盖**：对 Pet 资源实现 GET / POST / PUT / DELETE 四种操作的完整测试
+- **数据驱动**：测试数据抽离至 JSON 文件，通过 `@pytest.mark.parametrize` 实现一份用例跑多组数据
+- **分层架构**：ApiClient 封装 HTTP 请求，测试用例只关注业务逻辑，职责清晰
+- **Allure 报告**：集成 Allure 生成可视化测试报告，支持 epic / feature / story 三级标签
+- **接口安全检测**：部分用例包含 SQL 注入等异常输入校验，验证接口对恶意请求的防御能力
+
+## 快速运行
+
+```bash
+# 安装依赖
+pip install -r requirements.txt
+
+# 执行测试
+pytest testcase/ -v
+
+# 生成 Allure 报告
+pytest testcase/ --alluredir=./allure-results
+allure serve ./allure-results
+```
