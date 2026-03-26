@@ -1,0 +1,11 @@
+
+[  
+    {"desc":"正向用例-查询修改后的宠物信息",
+    "query_id": "dynamic",
+    "expected_status": 200
+    },
+    {"desc":"异常用例-查询不存在的宠物信息",
+    "query_id": 999888899,
+        "expected_status": 404
+     }
+]

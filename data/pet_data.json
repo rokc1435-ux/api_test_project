@@ -1,0 +1,31 @@
+ [
+    {
+        "desc": "正向用例-正常修改宠物名字",
+        "update_payload": {
+            "name": "success_dog",
+            "status": "available"
+        },
+        "expected_status": 200
+    },
+    {
+        "desc": "异常用例-传入非法的status值",
+        "update_payload": {
+            "name": "error_dog",
+            "status": 12345
+        },
+        "expected_status": 500
+    },
+    {"desc":"异常用例-name为空",
+        "update_payload": {
+            "name": "",
+            "status": "available"
+        },
+        "expected_status": 500
+    },
+    {"desc":"异常用例-缺少必填字段比如 update_payload 里干脆不写 name 这个键，只传 status",
+        "update_payload": {
+            "status": "available"
+        },
+        "expected_status": 500
+    }
+]
